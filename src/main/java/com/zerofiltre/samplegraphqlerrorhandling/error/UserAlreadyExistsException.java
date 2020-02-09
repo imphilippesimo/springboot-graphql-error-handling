@@ -1,6 +1,11 @@
 package com.zerofiltre.samplegraphqlerrorhandling.error;
 
-public class UserAlreadyExistsException extends RuntimeException {
+import graphql.*;
+import graphql.language.*;
+
+import java.util.*;
+
+public class UserAlreadyExistsException extends RuntimeException implements GraphQLError {
 
 
     public UserAlreadyExistsException(String message) {
@@ -8,4 +13,13 @@ public class UserAlreadyExistsException extends RuntimeException {
 
     }
 
+    @Override
+    public List<SourceLocation> getLocations() {
+        return null;
+    }
+
+    @Override
+    public ErrorClassification getErrorType() {
+        return ErrorType.ValidationError;
+    }
 }

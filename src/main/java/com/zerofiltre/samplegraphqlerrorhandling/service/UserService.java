@@ -26,7 +26,7 @@ public class UserService {
         for (User user : users)
             if (user.getUsername().equals(username) && user.getPassword().equals(password))
                 return user;
-        throw new UserNotFoundException("We were unable to find a user with the provided credentials");
+        throw new UserNotFoundException("We were unable to find a user with the provided credentials", "username");
     }
 
     private boolean userExists(String username) {
