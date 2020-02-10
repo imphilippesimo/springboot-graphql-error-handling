@@ -5,3 +5,4 @@
  **Commits:**
 1) Initial project with generic errors
 2) Customize errors according to the problem
+3) Send relevant info to the user

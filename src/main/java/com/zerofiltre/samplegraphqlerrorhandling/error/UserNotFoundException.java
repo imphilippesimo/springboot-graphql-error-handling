@@ -20,6 +20,11 @@ public class UserNotFoundException extends RuntimeException implements GraphQLEr
     }
 
     @Override
+    public List<Object> getPath() {
+        return null;
+    }
+
+    @Override
     public List<SourceLocation> getLocations() {
         return null;
     }
