@@ -12,6 +12,7 @@ public class UserQuery implements GraphQLQueryResolver {
     @Autowired
     private UserService userService;
 
+
     public User getUser(String username, String password) {
         return userService.getUser(username, password);
     }

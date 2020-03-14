@@ -35,4 +35,13 @@ public class UserService {
                 return true;
         return false;
     }
+
+    public User deleteUser(String username) {
+        for (User user : users)
+            if (user.getUsername().equals(username)) {
+                users.remove(user);
+                return user;
+            }
+        return null;
+    }
 }

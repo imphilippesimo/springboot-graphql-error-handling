@@ -7,7 +7,6 @@ import java.util.*;
 
 public class UserAlreadyExistsException extends RuntimeException implements GraphQLError {
 
-
     public UserAlreadyExistsException(String message) {
         super(message);
 

@@ -24,5 +24,4 @@ public class GraphQLExceptionHandler implements GraphQLErrorHandler {
         }
         return error;
     }
-
 }
