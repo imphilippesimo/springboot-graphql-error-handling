@@ -10,9 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.*;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
-
         http
-
                 .authorizeRequests()
                 //authorize all graphQL queries as we will filter request at the resolvers level
                 .antMatchers("/graphql").permitAll()
@@ -23,7 +21,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 //any other requests should be authenticated
                 .anyRequest().authenticated();
-
-
     }
 }

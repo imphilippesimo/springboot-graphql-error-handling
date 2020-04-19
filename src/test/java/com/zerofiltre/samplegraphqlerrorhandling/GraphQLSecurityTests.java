@@ -5,14 +5,11 @@ import com.graphql.spring.boot.test.*;
 import com.zerofiltre.samplegraphqlerrorhandling.error.*;
 import com.zerofiltre.samplegraphqlerrorhandling.resolver.*;
 import org.junit.jupiter.api.*;
-import org.junit.runner.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.boot.test.context.*;
 import org.springframework.security.test.context.support.*;
 import org.springframework.test.annotation.*;
-import org.springframework.test.context.junit4.*;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class GraphQLSecurityTests {
