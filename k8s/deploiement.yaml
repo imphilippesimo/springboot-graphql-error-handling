@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: graphql-k8s
+spec:
+  selector:
+      matchLabels:
+        app: graphql-k8s
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: graphql-k8s
+    spec:
+      containers:
+        - name: graphql
+          image: graphql:1.0
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 9001
+          #env:
+          #- name: GREETING
+            #value: "Warm greetings to"

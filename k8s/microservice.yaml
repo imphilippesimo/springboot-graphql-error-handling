@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: graphql-k8s
+spec:
+  selector:
+    app: graphql-k8s
+  ports:
+  - protocol: TCP
+    port: 9001
+  type: ClusterIP

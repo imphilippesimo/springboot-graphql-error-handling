@@ -1,6 +1,0 @@
-mutation {
-    deleteUser(username: "johndoe"){
-        id
-        username
-    }
-}
