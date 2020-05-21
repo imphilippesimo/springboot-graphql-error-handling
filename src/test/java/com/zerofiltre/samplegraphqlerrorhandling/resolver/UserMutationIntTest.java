@@ -17,17 +17,15 @@ import static org.mockito.Mockito.*;
 @GraphQLTest
 public class UserMutationIntTest {
 
+    @MockBean
+    UserService userServiceMock;
+    User user = new User();
     @Autowired
     private GraphQLTestTemplate graphQLTestTemplate;
 
-    @MockBean
-    UserService userServiceMock;
-
-    static User user = new User();
-
-
-    @BeforeAll
-    static void setUp() {
+    @BeforeEach
+    void setUp() {
+        user.setId(TEST_ID);
         user.setUsername(TEST_USERNAME);
         user.setPassword(TEST_PASSWORD);
     }
@@ -38,6 +36,7 @@ public class UserMutationIntTest {
         GraphQLResponse response = graphQLTestTemplate.postForResource("graphql/create-user.graphql");
         assertThat(response.isOk()).isTrue();
         assertThat(response.get("$.data.createUser.id")).isNotNull();
+        assertThat(response.get("$.data.createUser.id")).isEqualTo(String.valueOf(user.getId()));
         assertThat(response.get("$.data.createUser.username")).isEqualTo(TEST_USERNAME);
 
     }
@@ -45,12 +44,10 @@ public class UserMutationIntTest {
     @Test
     @WithMockUser(username = TEST_USERNAME, roles = "ADMIN")
     public void deleteUser() throws IOException {
-        doReturn(user).when(userServiceMock).deleteUser(TEST_USERNAME);
+        doReturn(user.getId()).when(userServiceMock).deleteUser(user.getId());
         GraphQLResponse response = graphQLTestTemplate.postForResource("graphql/delete-user.graphql");
         assertThat(response.isOk()).isTrue();
-        assertThat(response.get("$.data.deleteUser.id")).isNotNull();
-        assertThat(response.get("$.data.deleteUser.username")).isEqualTo(TEST_USERNAME);
-
+        assertThat(response.get("$.data.deleteUser")).isEqualTo(String.valueOf(user.getId()));
     }
 }
 

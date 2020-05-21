@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-graphql
+  namespace: sample-graphql-dev
+spec:
+  ports:
+    - nodePort: 32000
+      port: 80
+      targetPort: 8080
+  selector:
+    app: sample-graphql
+  type: NodePort

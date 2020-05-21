@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-graphql
+  namespace: sample-graphql-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-graphql
+  template:
+    metadata:
+      labels:
+        app: sample-graphql
+    spec:
+      containers:
+        - name: sample-graphql
+          image: imzerofiltre/sample-graphql:0.1.5-stable
+          imagePullPolicy: Always
+          env:
+            - name: DABATASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: sample-graphql-config-map
+                  key: database-url
+            - name: DATABASE_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: sample-graphql-config-map
+                  key: database-username
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sample-graphql-secret
+                  key: database-password

@@ -1,6 +1,3 @@
 mutation {
-    deleteUser(username: "johndoe"){
-        id
-        username
-    }
+    deleteUser(id: 1234)
 }

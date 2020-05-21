@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sample-graphql-config-map
+  namespace: sample-graphql-dev
+data:
+  database-url: "jdbc:mysql://10.111.166.126:3306/sample-graphql?createDatabaseIfNotExist=true"
+  database-username: "sample-graphql-dev"

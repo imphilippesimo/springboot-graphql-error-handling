@@ -12,8 +12,12 @@ public class UnauthenticatedAccessException extends RuntimeException implements 
     }
 
     @Override
-    public List<SourceLocation> getLocations() { return null; }
+    public List<SourceLocation> getLocations() {
+        return null;
+    }
 
     @Override
-    public ErrorClassification getErrorType() { return null; }
+    public ErrorClassification getErrorType() {
+        return null;
+    }
 }

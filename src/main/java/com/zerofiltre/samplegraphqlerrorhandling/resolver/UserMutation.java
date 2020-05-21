@@ -19,7 +19,7 @@ public class UserMutation implements GraphQLMutationResolver {
     }
 
     @AdminSecured
-    public User deleteUser(String username) {
-        return userService.deleteUser(username);
+    public int deleteUser(int id) {
+        return userService.deleteUser(id);
     }
 }
